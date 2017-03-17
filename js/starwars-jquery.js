@@ -1,5 +1,5 @@
 var shipList = [5, 9, 10, 11, 15],
-    swapiDomain = 'http://swapi.co/api/',
+    swapiDomain = 'https://swapi.co/api/',
     swapiUrl = swapiDomain + 'starships/',
     shipAttributes = ['name', 'model', 'manufacturer', 'crew', 'edited'],
     shipsInfo = [],
