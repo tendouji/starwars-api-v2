@@ -38,7 +38,7 @@ window.onload = function() {
 function loadShipInfo(n) {
     if(n < shipList.length) {
         var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", swapiUrl + shipList[n], true);
+        xhttp.open("GET", swapiUrl + shipList[n] + '/', true);
         xhttp.send();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
@@ -73,7 +73,7 @@ function populateChart() {
         '                   <a class="edit-link" href="javascript:swapCrewCountView(', ship,', \'edit\')">[&nbsp;<span class="icon-edit"></span>EDIT&nbsp;]</a>',
         '                   <div class="edit-panel">',
         '                       <span class="label">No. of Crew</span>',
-        '                       <input type="text" class="input" placeholder="', shipsInfo[ship].crew, '" />',
+        '                       <input type="number" class="input" placeholder="', shipsInfo[ship].crew, '" />',
         '                       <div class="button-area">',
         '                           <input type="button" class="button" value="Submit" onclick="editCrewCount(', ship,')" />',
         '                           <input type="button" class="button" value="Cancel" onclick="swapCrewCountView(', ship,', \'preview\')" />',
@@ -147,10 +147,13 @@ function editCrewCount(n) {
     var shipPanel = document.getElementById('ship' + n),
         crewValue = shipPanel.querySelector('.input').value;
 
-    shipsInfo[n].crew = parseInt(crewValue, 10);
-
-    shipsInfo.sort(sortArray);
-    populateChart();
+    if(crewValue == '') {
+        alert('Please enter a value');
+    } else {
+        shipsInfo[n].crew = parseInt(crewValue, 10);
+        shipsInfo.sort(sortArray);
+        populateChart();
+    }
 }
 
 function fadeIn(elm, display) {

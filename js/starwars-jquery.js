@@ -37,7 +37,7 @@ $(function() {
 function loadShipInfo() {
     var deferredCall = [];
     $.each(shipList, function(index, value) {
-        deferredCall.push( $.get(swapiUrl + value) );
+        deferredCall.push( $.get(swapiUrl + value + '/') );
     });
 
     $.when.apply($, deferredCall)
@@ -68,7 +68,7 @@ function populateChart() {
         '                   <a class="edit-link" href="#">[&nbsp;<span class="icon-edit"></span>EDIT&nbsp;]</a>',
         '                   <div class="edit-panel">',
         '                       <span class="label">No. of Crew</span>',
-        '                       <input type="text" class="input" placeholder="', shipsInfo[ship].crew, '" />',
+        '                       <input type="number" class="input" placeholder="', shipsInfo[ship].crew, '" />',
         '                       <div class="button-area">',
         '                           <input type="button" class="button edit-btn" value="Submit" />',
         '                           <input type="button" class="button cancel-btn" value="Cancel" />',
@@ -140,12 +140,13 @@ function editCrewCount(n) {
     var shipPanel = $('#ship' + n),
         crewValue = shipPanel.find('.input').val();
 
-        console.log(n, crewValue);
-
-    shipsInfo[n].crew = parseInt(crewValue, 10);
-
-    shipsInfo.sort(sortArray);
-    populateChart();
+    if(crewValue == '') {
+        alert('Please enter a value');
+    } else {
+        shipsInfo[n].crew = parseInt(crewValue, 10);
+        shipsInfo.sort(sortArray);
+        populateChart();
+    }
 }
 
 function sortArray(a, b) {
