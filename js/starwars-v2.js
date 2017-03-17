@@ -38,7 +38,7 @@ window.onload = function() {
 function loadShipInfo(n) {
     if(n < shipList.length) {
         var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", swapiUrl + shipList[n], true);
+        xhttp.open("GET", swapiUrl + shipList[n] + '/', true);
         xhttp.send();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {

@@ -37,7 +37,7 @@ $(function() {
 function loadShipInfo() {
     var deferredCall = [];
     $.each(shipList, function(index, value) {
-        deferredCall.push( $.get(swapiUrl + value) );
+        deferredCall.push( $.get(swapiUrl + value + '/') );
     });
 
     $.when.apply($, deferredCall)
