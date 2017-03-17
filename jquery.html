@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Star Wars Spaceships with jQuery + SASS</title>
+	<link rel="stylesheet" type="text/css" href="css/sass.css">
+</head>
+<body>
+	<header>
+		<div class="wrapper">
+			<h1>Star Wars Spaceship!</h1>
+			<nav>
+				<ul>
+					<li>
+						<a href="javascript.html">Good ol' Vanilla JS</a>
+					</li>
+					<li>
+						<a class="selected" href="jquery.html">jQuery + SASS</a>
+					</li>
+					<li>
+						<a href="index.html">Angular JS + SASS</a>
+					</li>
+				</ul>
+				<select>
+					<option value="javascript.html">Good ol' Vanilla JS</option>
+					<option value="jquery.html" selected="selected">jQuery + SASS</option>
+					<option value="index.html">Angular JS + SASS</option>
+				</select>
+			</nav>
+		</div>
+	</header>
+
+	<main id="display">
+		<div class="wrapper">
+			<ul id="spaceshipList">
+				<li>
+					<div id="messagePanel" class="message-panel"></div>
+				</li>
+			</ul>
+		</div>
+	</main>
+
+	<footer>
+		<div class="wrapper">
+			<span>Copyright &copy; 2017 &bull; Tendouji</span>
+		</div>
+	</footer>
+
+
+	<div id="preloader" class="preloader"></div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-3.1.1.slim.min.js"><\/script>')</script>
+	<script type="text/javascript" src="js/starwars-jquery.js"></script>
+</body>
+</html>

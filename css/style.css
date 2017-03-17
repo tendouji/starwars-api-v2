@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400i,700,700i');
+@import url('normalize.css');
+
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?10kunl');
+    src: url('../fonts/icomoon.eot?10kunl#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?10kunl') format('truetype'),
+        url('../fonts/icomoon.woff?10kunl') format('woff'),
+        url('../fonts/icomoon.svg?10kunl#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    margin-right: .5em;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-date:before { content: "\e94e"; }
+.icon-manufacturer:before { content: "\e996"; }
+.icon-spaceship:before { content: "\e9a5"; }
+.icon-model:before { content: "\e9b4"; }
+.icon-crew:before { content: "\e9dc"; }
+.icon-ellipsis:before { content: "\eaa3"; }
+.icon-plus:before { content: "\ea0a"; opacity: .7; }
+.icon-edit:before { content: "\e905"; }
+
+h1, h2, h3, h4 {
+    margin: 0 0 .5em;
+}
+
+a {
+    color: #FFE300;
+}
+
+input, textarea, button, select {
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    font-size: 1em;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #272b30;
+    color: #c8c8c8;
+    font-family: 'Roboto Condensed', Arial, sans-serif;
+    font-size: 1em;
+}
+
+.preloader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 0;
+    padding: 0 5px;
+    background: #FFE300;
+    color: #333;
+    text-align: right;
+    line-height: 15px;
+    font-size: .7em;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.wrapper {
+    width: 98%;
+    width: calc(100% - 2em);
+    max-width: 1000px;
+    margin: 0 auto; 
+}
+
+header, footer {
+    background: #1c1e22;
+}
+
+header {
+    padding-top: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    color: #FFE300;
+}
+
+header:after {
+    display: block;
+    clear: both;
+    content: '';
+}
+
+header h1 {
+    float: left;
+}
+
+header nav {
+    float: right;
+}
+
+header nav select {
+    display: none;
+}
+
+header ul li {
+    display: inline-block;
+    padding: 0 1em;
+    float: left;
+    border-right: 1px dotted #ccc;
+}
+
+header ul li:last-child {
+    padding-right: 0;
+    border-right: 0;
+}
+
+header ul li a.selected {
+    color: #ccc;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: .5em 0;
+    margin-top: 1em;
+    border-top: 1px solid rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+}
+
+main {
+    padding-bottom: 3em;
+    counter-reset: name;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    counter-reset: section;
+} 
+
+ul li {
+    display: block;
+}
+
+ul#spaceshipList {
+}
+
+ul#spaceshipList > li {
+    margin-bottom: 1em;
+}
+
+.ship {
+    position: relative;
+    padding: 1em 1em 1em 200px;
+    border: 1px solid #0c0d0e;
+    background: #1c1e22;
+    border-radius: 4px;
+    transition: all 300ms; 
+}
+
+.ship:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    padding: 1em;
+    box-sizing: border-box;
+    font-size: 4em;
+    font-weight: bold;
+    color: #FFE300;
+    text-align: center;
+    counter-increment: section;
+    content: "#" counter(section);
+}
+
+.ship .name {
+    color: #F60;
+}
+
+.ship .name:before {
+    display: none;
+    color: #FFE300;
+    counter-increment: name;
+    content: "#" counter(name) " ";
+}
+
+.ship [class^="list-"] {
+    margin: .5em 0;
+}
+
+.ship [class^="list-"] .label {
+    display: inline-block;
+    width: 140px;
+    font-weight: bold;
+}
+
+.ship [class^="list-"] .label:after {
+    content: ': ';
+}
+
+.ship [class^="list-"] .value {
+
+}
+
+.ship .list-crew {
+    display: inline-block;
+    position: relative;
+    padding: .7em 1em; 
+    min-width: 200px;
+    border-color: rgba(0, 0, 0, 0.6);
+    background-image: -webkit-linear-gradient(#484e55, #3a3f44 60%, #313539);
+    background-image: -o-linear-gradient(#484e55, #3a3f44 60%, #313539);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#484e55), color-stop(60%, #3a3f44), to(#313539));
+    background-image: linear-gradient(#484e55, #3a3f44 60%, #313539);
+    background-repeat: no-repeat;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff484e55', endColorstr='#ff313539', GradientType=0);
+    -webkit-filter: none;
+    filter: none;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.ship .list-crew .edit-panel{
+    display: none;
+}
+
+.ship .list-crew a.edit-link {
+    position: absolute;
+    top: .4em;
+    right: .6em;
+    font-size: .7em;
+    text-decoration: none;
+}
+
+.ship .list-crew .label {
+    width: auto;
+}
+
+.ship .list-crew .input {
+    padding: .2em;
+    width: 80px;
+    border: 0;
+    border-bottom: 1px dotted #ccc;
+    background: none;
+    color: #fff;
+    vertical-align: middle;
+}
+
+.ship .list-crew .button-area {
+    display: inline-block;
+}
+
+.ship .list-crew .button {
+    padding: .2em;
+    width: 65px;
+    border: 1px solid #ccc;
+    color: #ccc;
+    background: none;
+    vertical-align: middle;
+}
+
+.ship .list-crew .infographic {
+    margin-top: .5rem;
+    font-size: 0;
+    color: #FFCF75;
+}
+
+.ship .list-crew .infographic [class^="icon-"]:before {
+    font-size: 2rem;
+}
+
+.ship .list-crew .infographic .icon-plus:before {
+    display: inline-block;
+    position: relative;
+    top: -20px;
+    margin: 0 2px;
+    font-size: .7rem;
+}
+
+.ship .list-model {
+}
+
+.ship .list-manufacturer {
+    color: #909090;
+}
+
+.ship .list-date {
+}
+
+.message-panel {
+    padding: 1em;
+    border: 1px solid #0c0d0e;
+    background: #1c1e22;
+    border-radius: 4px; 
+    text-align: center;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .ship {
+        padding: 1em 1em 1em 150px;
+    }
+
+    .ship:before {
+        width: 150px;
+        padding: 1em .5em;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header ul li {
+        padding: 0 .5em;
+    }
+
+    .ship {
+        padding: 1em;
+    }
+
+    .ship:before {
+        display: none;
+    }
+
+    .ship .name:before {
+        display: inline;
+    }
+    
+    .ship [class^="list-"] .label {
+        width: 120px;
+    }
+
+    .ship .list-crew .label {
+        width: auto;
+    } 
+}
+
+
+@media screen and (max-width: 640px) {
+    header ul {
+        display: none;
+    }
+
+    header nav select {
+        display: inline-block;
+    }
+
+    .ship [class^="list-"] {
+        margin: .5em 0 1em;
+    }
+
+    .ship [class^="list-"] .label, 
+    .ship [class^="list-"] .value {
+        display: block;
+        width: auto;
+    }
+
+    .ship .list-crew {
+        display: block;
+    }
+
+    .ship .list-crew .label, 
+    .ship .list-crew .value {
+        display: inline-block;
+    } 
+}
+
+
+@media screen and (max-width: 480px) {
+    header h1, 
+    header nav {
+        float: none;
+    }
+    
+    header h1 {
+        text-align: center;
+    }
+
+    header nav {
+        margin-bottom: 1em;
+    }
+
+    header nav select {
+        width: 100%;
+    }
+
+    .ship .list-crew .infographic [class^="icon-"]:before {
+        font-size: 1.5rem;
+    }
+
+    .ship .list-crew .infographic .icon-plus:before {
+        top: -15px;
+        font-size: 0.5rem;
+    }
+
+    .ship .list-crew .edit-panel {
+        text-align: center;
+    }
+
+    .ship .list-crew .button-area {
+        display: block;
+        margin-top: .3em;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .ship .list-crew .infographic {
+        display: none;
+    }
+}
