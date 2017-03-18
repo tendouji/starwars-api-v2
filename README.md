@@ -1,6 +1,8 @@
 # starwars-api-v2
 This project has 2 main development parts, vanilla Javascript and jQuery with SASS generated CSS. 
 
+Demo page can be [viewed here](https://tendouji.github.io/starwars-api-v2/index.html).
+
 
 ## Vanilla Javascript Development
 This version is to demonstrate development via the most basic Javascript codes without extending any 3rd party library.
