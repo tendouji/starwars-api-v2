@@ -1,5 +1,5 @@
 # starwars-api-v2
-This project has 2 main development parts, vanilla Javascript and jQuery with SASS generated CSS. 
+This project has 2 main development parts, vanilla Javascript and jQuery with SASS generated CSS. All the sites are created to be responsive until 320px width.
 
 Demo page can be [viewed here](https://tendouji.github.io/starwars-api-v2/index.html).
 
